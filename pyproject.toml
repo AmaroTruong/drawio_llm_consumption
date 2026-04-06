@@ -1,0 +1,15 @@
+[project]
+name = "drawio-arch-mcp"
+version = "0.1.0"
+description = "Local-first MCP server: Draw.io diagrams to normalized graph JSON"
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp>=2.0.0",
+]
+
+[project.scripts]
+drawio-arch-mcp = "drawio_arch_mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

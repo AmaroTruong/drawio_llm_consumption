@@ -1,0 +1,12 @@
+{
+  "servers": {
+    "drawioArchitecture": {
+      "type": "stdio",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": ["-m", "drawio_arch_mcp.server"],
+      "env": {
+        "DRAWIO_MCP_ALLOWED_ROOTS": "${workspaceFolder}/..,${workspaceFolder}"
+      }
+    }
+  }
+}

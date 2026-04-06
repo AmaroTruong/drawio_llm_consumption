@@ -1,19 +1,10 @@
 {
   "version": "1.0",
   "aliases": {
-    "auth": "Auth Service",
-    "auth-svc": "Auth Service",
-    "authentication": "Auth Service",
-    "authsvc": "Auth Service",
-    "accounts": "Account Service",
-    "account-svc": "Account Service",
-    "accountsvc": "Account Service",
-    "transfers": "Transfer Service",
-    "transfer-svc": "Transfer Service",
-    "transfersvc": "Transfer Service",
-    "payments": "Transfer Service",
-    "notifications": "Notification Service",
-    "notif-svc": "Notification Service",
-    "notifsvc": "Notification Service"
+    "example-svc": "Example Service",
+    "example": "Example Service",
+    "gateway": "Example Gateway",
+    "example-db": "Example Database",
+    "ext-system": "Example External System"
   }
 }

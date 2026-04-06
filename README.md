@@ -51,23 +51,57 @@ To use context fusion features (repo context, Confluence exports, mapping), set 
 
 ### Mapping Files
 
-**`component_map.json`** — maps diagram component labels to their repo, docs, owner, and tags:
+Mapping files connect diagram component labels to local repo paths and Confluence-export paths. You don't need repos or docs to get started — create the mappings with empty paths first, then fill them in as you clone repos and export Confluence pages.
+
+Sample templates are included in `drawio_arch_mcp/samples/mappings/`.
+
+#### Step 1: Start with stubs
+
+Create `component_map.json` with your diagram component names and leave paths empty:
 
 ```json
 {
   "version": "1.0",
   "components": {
     "Auth Service": {
-      "repo_path": "repos/auth-service",
-      "docs_paths": ["confluence_exports/architecture/auth-service.html"],
+      "repo_path": "",
+      "docs_paths": [],
+      "owner": "",
+      "tags": ["security"]
+    },
+    "Transfer Service": {
+      "repo_path": "",
+      "docs_paths": [],
+      "owner": "",
+      "tags": ["payments"]
+    }
+  }
+}
+```
+
+Tools like `map_component_to_repo` and `validate_architecture_consistency` work immediately — they'll report which components are missing repo/doc mappings.
+
+#### Step 2: Fill in paths when ready
+
+When you clone a repo locally or export a Confluence page, update the entry:
+
+```json
+{
+  "version": "1.0",
+  "components": {
+    "Auth Service": {
+      "repo_path": "/work/arch-context/repos/auth-service",
+      "docs_paths": [
+        "/work/arch-context/confluence_exports/architecture/auth-service.html"
+      ],
       "owner": "platform-team",
       "tags": ["security", "identity"]
     },
     "Transfer Service": {
-      "repo_path": "repos/transfer-service",
+      "repo_path": "/work/arch-context/repos/transfer-service",
       "docs_paths": [
-        "confluence_exports/architecture/transfer-service.html",
-        "confluence_exports/runbooks/payment-failures.html"
+        "/work/arch-context/confluence_exports/architecture/transfer-service.html",
+        "/work/arch-context/confluence_exports/runbooks/payment-failures.html"
       ],
       "owner": "payments-team",
       "tags": ["payments", "transfers"]
@@ -76,7 +110,11 @@ To use context fusion features (repo context, Confluence exports, mapping), set 
 }
 ```
 
-**`aliases.json`** — shorthand names that resolve to canonical component names:
+Once paths are filled in, tools like `get_component_context`, `hydrate_architecture_context`, and `get_repo_context` automatically use them — no path arguments needed per call.
+
+#### `aliases.json`
+
+Optional shorthand names that resolve to canonical component names in `component_map.json`:
 
 ```json
 {
@@ -90,7 +128,7 @@ To use context fusion features (repo context, Confluence exports, mapping), set 
 }
 ```
 
-Sample mapping files are included in `drawio_arch_mcp/samples/mappings/`.
+This lets you call `get_component_context("auth", ...)` instead of `get_component_context("Auth Service", ...)`.
 
 ## Running the MCP Server
 

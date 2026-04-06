@@ -74,6 +74,51 @@ def resolve_drawio_path(drawio_path: str, allowed_roots: tuple[str, ...]) -> Pat
     return candidate
 
 
+def resolve_output_path(output_path: str, allowed_roots: tuple[str, ...]) -> Path:
+    """
+    Validate an output ``.drawio`` path for writing.
+
+    Rules mirror ``resolve_drawio_path`` except the file need not exist yet.
+    Parent directory must exist and be writable.
+    """
+    if not output_path or not output_path.strip():
+        raise PathValidationError("output_path must be a non-empty string.")
+
+    candidate = _canonical_resolved(Path(output_path.strip()))
+
+    if candidate.suffix.lower() != ".drawio":
+        raise PathValidationError(
+            f"Expected a `.drawio` suffix, got {candidate.suffix!r}: {candidate}"
+        )
+
+    parent = candidate.parent
+    if not parent.exists():
+        raise PathValidationError(f"Parent directory does not exist: {parent}")
+    if not os.access(parent, os.W_OK):
+        raise PathValidationError(f"Parent directory is not writable: {parent}")
+
+    if not allowed_roots:
+        raise PathValidationError("No allowed_roots configured.")
+
+    resolved_roots = [_canonical_resolved(Path(r.strip())) for r in allowed_roots if r.strip()]
+    under_any = any(_is_under(candidate, root) for root in resolved_roots)
+    if not under_any:
+        roots_display = ", ".join(str(r) for r in resolved_roots)
+        raise PathValidationError(
+            f"Output path must be under an allowed root. Got {candidate}, allowed: [{roots_display}]"
+        )
+
+    return candidate
+
+
+def _is_under(candidate: Path, root: Path) -> bool:
+    try:
+        candidate.relative_to(root)
+        return True
+    except ValueError:
+        return False
+
+
 def load_allowed_roots_from_env() -> tuple[str, ...]:
     """
     Read comma-separated roots from ``DRAWIO_MCP_ALLOWED_ROOTS``.

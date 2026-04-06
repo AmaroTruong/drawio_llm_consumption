@@ -1,7 +1,7 @@
 [project]
 name = "drawio-arch-mcp"
-version = "0.1.0"
-description = "Local-first MCP server: Draw.io diagrams to normalized graph JSON"
+version = "0.2.0"
+description = "Local-first MCP server: Draw.io diagrams → normalized graph, mutation, export, review"
 requires-python = ">=3.11"
 dependencies = [
     "fastmcp>=2.0.0",

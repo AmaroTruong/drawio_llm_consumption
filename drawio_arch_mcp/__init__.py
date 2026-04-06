@@ -1,3 +1,3 @@
-"""Draw.io architecture MCP: parse diagrams into a normalized graph model."""
+"""Draw.io architecture MCP: parse, mutate, export, and review architecture diagrams."""
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"

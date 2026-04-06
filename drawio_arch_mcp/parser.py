@@ -16,6 +16,7 @@ from typing import Any
 from xml.etree.ElementTree import Element
 
 from drawio_arch_mcp.models import (
+    GRAPH_MODEL_VERSION,
     DiagramGraphDict,
     EdgeDict,
     GeometryDict,
@@ -373,6 +374,7 @@ def parse_drawio_bytes(data: bytes, diagram_id: str | None = None) -> DiagramGra
 
     return DiagramGraphDict(
         diagram_id=did,
+        graph_version=GRAPH_MODEL_VERSION,
         pages=pages_out,
         nodes=nodes_out,
         edges=edges_out,

@@ -5,7 +5,9 @@
       "command": "${workspaceFolder}/.venv/bin/python",
       "args": ["-m", "drawio_arch_mcp.server"],
       "env": {
-        "DRAWIO_MCP_ALLOWED_ROOTS": "${workspaceFolder}/..,${workspaceFolder}"
+        "DRAWIO_MCP_ALLOWED_ROOTS": "${workspaceFolder}/..,${workspaceFolder}",
+        "DRAWIO_MCP_MAPPINGS_DIR": "",
+        "DRAWIO_MCP_CACHE_DIR": ""
       }
     }
   }

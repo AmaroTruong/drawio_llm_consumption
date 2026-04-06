@@ -1,3 +1,3 @@
-"""Draw.io architecture MCP: parse, mutate, export, and review architecture diagrams."""
+"""Draw.io architecture MCP: parse, mutate, export, review, and context fusion."""
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"

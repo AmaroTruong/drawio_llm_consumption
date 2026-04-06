@@ -1,4 +1,4 @@
-"""Resolve and validate local `.drawio` paths against allowed filesystem roots."""
+"""Resolve and validate local paths against allowed filesystem roots."""
 
 from __future__ import annotations
 
@@ -117,6 +117,57 @@ def _is_under(candidate: Path, root: Path) -> bool:
         return True
     except ValueError:
         return False
+
+
+def _check_under_roots(candidate: Path, allowed_roots: tuple[str, ...], label: str) -> Path:
+    """Shared root-check for all path validators."""
+    if not allowed_roots:
+        raise PathValidationError(f"No allowed_roots configured for {label}.")
+    resolved_roots = [_canonical_resolved(Path(r.strip())) for r in allowed_roots if r.strip()]
+    if not any(_is_under(candidate, root) for root in resolved_roots):
+        roots_display = ", ".join(str(r) for r in resolved_roots)
+        raise PathValidationError(
+            f"{label} must be under an allowed root. Got {candidate}, allowed: [{roots_display}]"
+        )
+    return candidate
+
+
+def resolve_local_dir(dir_path: str, allowed_roots: tuple[str, ...], label: str = "Directory") -> Path:
+    """Validate a readable local directory under allowed roots."""
+    if not dir_path or not dir_path.strip():
+        raise PathValidationError(f"{label} path must be a non-empty string.")
+    candidate = _canonical_resolved(Path(dir_path.strip()))
+    if not candidate.exists():
+        raise PathValidationError(f"{label} does not exist: {candidate}")
+    if not candidate.is_dir():
+        raise PathValidationError(f"{label} is not a directory: {candidate}")
+    if not os.access(candidate, os.R_OK):
+        raise PathValidationError(f"{label} is not readable: {candidate}")
+    return _check_under_roots(candidate, allowed_roots, label)
+
+
+def resolve_local_file(
+    file_path: str,
+    allowed_roots: tuple[str, ...],
+    label: str = "File",
+    allowed_suffixes: tuple[str, ...] | None = None,
+) -> Path:
+    """Validate a readable local file under allowed roots, with optional suffix filter."""
+    if not file_path or not file_path.strip():
+        raise PathValidationError(f"{label} path must be a non-empty string.")
+    candidate = _canonical_resolved(Path(file_path.strip()))
+    if not candidate.exists():
+        raise PathValidationError(f"{label} does not exist: {candidate}")
+    if not candidate.is_file():
+        raise PathValidationError(f"{label} is not a regular file: {candidate}")
+    if allowed_suffixes:
+        if candidate.suffix.lower() not in allowed_suffixes:
+            raise PathValidationError(
+                f"{label}: expected suffix in {allowed_suffixes}, got {candidate.suffix!r}: {candidate}"
+            )
+    if not os.access(candidate, os.R_OK):
+        raise PathValidationError(f"{label} is not readable: {candidate}")
+    return _check_under_roots(candidate, allowed_roots, label)
 
 
 def load_allowed_roots_from_env() -> tuple[str, ...]:

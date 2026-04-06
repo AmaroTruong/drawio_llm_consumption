@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "components": {
+    "Auth Service": {
+      "repo_path": "repos/auth-service",
+      "docs_paths": [
+        "confluence_exports/architecture/auth-service.html"
+      ],
+      "owner": "platform-team",
+      "tags": ["security", "identity"]
+    },
+    "Account Service": {
+      "repo_path": "repos/account-service",
+      "docs_paths": [
+        "confluence_exports/architecture/account-service.html"
+      ],
+      "owner": "core-banking-team",
+      "tags": ["accounts", "banking"]
+    },
+    "Transfer Service": {
+      "repo_path": "repos/transfer-service",
+      "docs_paths": [
+        "confluence_exports/architecture/transfer-service.html",
+        "confluence_exports/runbooks/payment-failures.html"
+      ],
+      "owner": "payments-team",
+      "tags": ["payments", "transfers"]
+    },
+    "Notification Service": {
+      "repo_path": "repos/notification-service",
+      "docs_paths": [],
+      "owner": "platform-team",
+      "tags": ["notifications"]
+    }
+  }
+}

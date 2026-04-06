@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="drawio-arch-mcp" modified="2026-01-01T00:00:00.000Z" agent="drawio-arch-mcp-v0.2.0" version="24.0.0">
+  <diagram id="bank-arch-1" name="Page-1">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" value="Fixed Simple Bank Architecture" style="text;html=1;strokeColor=none;fillColor=none;fontSize=22;fontStyle=1;" vertex="1">
+          <mxGeometry x="300" y="20" width="700" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="clientZone" parent="1" value="Client Zone" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;fontStyle=1;" vertex="1">
+          <mxGeometry x="40" y="100" width="250" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="serviceZone" parent="1" value="Backend Services" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#82b366;fillColor=#d5e8d4;fontStyle=1;" vertex="1">
+          <mxGeometry x="330" y="100" width="560" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="dataZone" parent="1" value="Data Layer" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#d79b00;fillColor=#fff2cc;fontStyle=1;" vertex="1">
+          <mxGeometry x="930" y="100" width="280" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="externalZone" parent="1" value="External Systems" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#b85450;fillColor=#f8cecc;fontStyle=1;" vertex="1">
+          <mxGeometry x="1240" y="100" width="250" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="webapp" parent="1" value="Web App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1">
+          <mxGeometry x="80" y="150" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mobileapp" parent="1" value="Mobile App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1">
+          <mxGeometry x="80" y="235" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="apigw" parent="1" value="API Gateway" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1">
+          <mxGeometry x="380" y="150" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="authsvc" parent="1" value="Auth Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1">
+          <mxGeometry x="590" y="130" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="accountsvc" parent="1" value="Account Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1">
+          <mxGeometry x="590" y="220" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="transfersvc" parent="1" value="Transfer Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1">
+          <mxGeometry x="590" y="310" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="notifsvc" parent="1" value="Notification Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1">
+          <mxGeometry x="590" y="400" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="auditdb" parent="1" value="Audit Logs DB" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#fff2cc;strokeColor=#d79b00;" vertex="1">
+          <mxGeometry x="980" y="320" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="paymentproc" parent="1" value="External Payment Processor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+          <mxGeometry x="1285" y="180" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" value="Legend" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#666666;fillColor=#f5f5f5;fontStyle=1;" vertex="1">
+          <mxGeometry x="60" y="560" width="620" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="legendService" parent="1" value="Service / Application" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1">
+          <mxGeometry x="90" y="610" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="legendDB" parent="1" value="Database" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#fff2cc;strokeColor=#d79b00;" vertex="1">
+          <mxGeometry x="300" y="595" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="legendExt" parent="1" value="External System" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+          <mxGeometry x="460" y="610" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="legendGoodText" parent="1" value="Solid arrow = intended dependency / communication path" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;align=left;" vertex="1">
+          <mxGeometry x="95" y="695" width="420" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legendBadText" parent="1" value="Red dashed arrow = intentional flaw / questionable design" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#b85450;align=left;" vertex="1">
+          <mxGeometry x="95" y="725" width="420" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legendNote" parent="1" value="Purpose: test MCP parsing, architecture summary, and flaw detection." style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;align=left;" vertex="1">
+          <mxGeometry x="95" y="760" width="450" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="note1" parent="1" value="Architecture fixed: Dedicated DBs per service, removed direct accesses, added labels." style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d79b00;" vertex="1">
+          <mxGeometry x="915" y="430" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="accountdb" parent="1" value="Account DB" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#fff2cc;strokeColor=#d79b00;" vertex="1">
+          <mxGeometry x="980" y="170" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="authdb" parent="1" value="Auth DB" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#fff2cc;strokeColor=#d79b00;" vertex="1">
+          <mxGeometry x="980" y="260" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="transferdb" parent="1" value="Transfer DB" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#fff2cc;strokeColor=#d79b00;" vertex="1">
+          <mxGeometry x="980" y="350" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" parent="1" value="HTTP API Call" style="endArrow=block;html=1;rounded=0;strokeWidth=2;" edge="1" source="webapp" target="apigw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" parent="1" value="Route to Auth" style="endArrow=block;html=1;rounded=0;strokeWidth=2;" edge="1" source="apigw" target="authsvc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" parent="1" value="Route to Account" style="endArrow=block;html=1;rounded=0;strokeWidth=2;" edge="1" source="apigw" target="accountsvc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" parent="1" value="Route to Transfer" style="endArrow=block;html=1;rounded=0;strokeWidth=2;" edge="1" source="apigw" target="transfersvc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" parent="1" value="Log Notification" style="endArrow=block;html=1;rounded=0;strokeWidth=2;" edge="1" source="notifsvc" target="auditdb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" parent="1" value="Query Account Data" style="endArrow=block;html=1;rounded=0;strokeWidth=2;" edge="1" source="accountsvc" target="accountdb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" parent="1" value="Update Transfer Data" style="endArrow=block;html=1;rounded=0;strokeWidth=2;" edge="1" source="transfersvc" target="transferdb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" parent="1" value="Validate Credentials" style="endArrow=block;html=1;rounded=0;strokeWidth=2;" edge="1" source="authsvc" target="authdb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
